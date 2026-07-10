@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.metropolitan.prodavnica_pz.models.Product" />
+
+        <variable
+            name="productInterface"
+            type="com.metropolitan.prodavnica_pz.adapters.ProductListAdapter.ProductInterface" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> productInterface.onItemClick(product)}"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/productImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:productImage="@{product.imageId}"
+            app:srcCompat="@drawable/princes_krofna" />
+
+        <TextView
+            android:id="@+id/productNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="Naziv proizvoda"
+            android:text="@{product.name}"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="999.99"
+            android:text="@{String.valueOf(product.price) + ` din`}" />
+
+        <TextView
+            android:id="@+id/availableTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Dostupno"
+            android:text="@{product.available ? `Dostupno` : `Nema na stanju`}"
+            android:textColor="@{product.available ? @color/teal_700 : @color/red}" />
+
+        <Button
+            android:id="@+id/addToCartButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="@{product.available}"
+            android:onClick="@{() -> productInterface.addItem(product)}"
+            android:text="Dodaj u korpu"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</layout>
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shopViewmodel"
+            type="com.metropolitan.prodavnica_pz.viewmodels.ShopViewmodel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context=".views.ProductFragment">
+
+            <ImageView
+                android:id="@+id/productImageView"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:productImage="@{shopViewmodel.product.imageId}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/princes_krofna" />
+
+            <TextView
+                android:id="@+id/productNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{shopViewmodel.product.name}"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(shopViewmodel.product.price) + ` din`}" />
+
+            <TextView
+                android:id="@+id/availableTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{shopViewmodel.product.available ? `Dostupno` : `Nema na stanju`}"
+                android:textColor="@{shopViewmodel.product.available ? @color/purple_500 : @color/red}" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Opis proizvoda"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptionTextTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{shopViewmodel.product.description}" />
+
+            <Button
+                android:id="@+id/addToCartButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:enabled="@{shopViewmodel.product.available}"
+                android:onClick="@{() -> shopViewmodel.addItemToCart(shopViewmodel.product)}"
+                android:text="Dodaj u korpu"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
