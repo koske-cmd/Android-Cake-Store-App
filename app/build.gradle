@@ -38,6 +38,10 @@ android {
 
 dependencies {
 
+    // DODAJTE OVO NA POČETAK dependencies bloka
+    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.22')
+    // Ostale dependencije ostaju iste...
+
     implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
