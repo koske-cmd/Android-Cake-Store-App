@@ -25,9 +25,13 @@ Android application for browsing and ordering cakes with dynamic data loading fr
 ## 📸 Screenshots
 
 
-| Home Screen | Detail View | Search |
-|-------------|-------------|--------|
-| *(dodaj sliku)* | *(dodaj sliku)* | *(dodaj sliku)* |
+| Start Fragment | Kolači Fragment | Product Fragment |
+|----------------|-----------------|------------------|
+| ![Start](screenshots/startFragment.png) | ![Kolači](screenshots/kolaciFragment.png) | ![Product](screenshots/productFragment.png) |
+
+| Cart Fragment | Mail Order | Order Fragment |
+|---------------|------------|----------------|
+| ![Cart](screenshots/cartFragment.png) | ![Mail Order](screenshots/mailOrder.png) | ![Order](screenshots/orderFragment.png) |
 
 ## 🚀 Getting Started
 
